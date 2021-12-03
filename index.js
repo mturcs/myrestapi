@@ -1,3 +1,3 @@
-var wiki = require('./wiki.js');
+//var wiki = require('./wiki.js');
 // ...
-app.use('/wiki', wiki);
+//app.use('/wiki', wiki);
