@@ -5,15 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 
-//var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
+//routes goes here
 var grsRegistryRouter = require('./routes/grs-registry');
+var grsStoreRouter = require('./routes/grs-store');
+
 var cors = require('cors');
 var app = express();
 
 /* local DB  */
 //mongoose.connect('mongodb://localhost:27017/db', { useNewUrlParser: true });
-//mongoosePromise.connect('mongodb://localhost:27017/db', { useNewUrlParser: true });
 
 
 /* ATLAS Cloud DB */
@@ -38,15 +38,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
-//app.use('/about', usersRouter);
-app.use('/app', grsRegistryRouter);
 
+app.use('/app/reg', grsRegistryRouter);
+app.use('/app/store', grsStoreRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    res.send('HIBA HIBA');
+    res.send('Restapi started');
     next(createError(404));
 });
 

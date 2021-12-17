@@ -30,7 +30,7 @@ router.post('/create', function (req, res, next) {
     console.log("mquery: ",req.body)
     grsRegistry.create(mQuery, function (err, mresp) {
         
-        res.send({ "Message": "Ceated successfully" })
+        res.send({ "Message": "Created successfully" })
     })
 
 })
