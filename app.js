@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 //routes goes here
 var grsRegistryRouter = require('./routes/grs-registry');
 var grsStoreRouter = require('./routes/grs-store');
+var grsSuplyRouter = require('./routes/grs-suply');
 
 var cors = require('cors');
 var app = express();
@@ -41,6 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/app/reg', grsRegistryRouter);
 app.use('/app/store', grsStoreRouter);
+app.use('/app/suply', grsSuplyRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
