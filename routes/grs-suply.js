@@ -89,8 +89,9 @@ router.post('/update', function (req, res, next) {
 router.post('/delete', function (req, res, next) {
     const mId = req.query._id;
     console.log(mId)
-    grsRegistry.findByIdAndRemove(mId, function (err, mresp) {
+    grsSuply.findByIdAndRemove(mId, function (err, mresp) {
         res.send({ "Message": "Removed HELLO successfully" })
+        err?console.log("HIBA"):console.log("OK")
     })
 
 
@@ -141,7 +142,7 @@ router.get('/param', function (req, res, next) {
 router.get('/read/', function (req, res, next) {
 
 
-    grsRegistry.find({}, function (err, mered) {
+    grsSuply.find({}, function (err, mered) {
 
         res.json(mered)
 
