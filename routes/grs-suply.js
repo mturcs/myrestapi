@@ -63,6 +63,9 @@ router.post('/query', function (req, res, next) {
 
 })
 
+
+
+
 //update with post req
 router.post('/update', function (req, res, next) {
     
@@ -70,8 +73,10 @@ router.post('/update', function (req, res, next) {
     const mQuery = req.body
     const mUpdate = req.body.update;
     const mOptions = '';
-    grsRegistry.findByIdAndUpdate(mId, mQuery, mOptions, function (err, mresp) {
+    
+    grsSuply.findByIdAndUpdate(mId, mQuery, mOptions, function (err, mresp) {
        res.send({ "Message": "Updated successfully" })
+       console.log("hello update")
        console.log(mQuery,mId)
        if (err) {
         console.log("MONOERR",err)
